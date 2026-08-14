@@ -26,10 +26,10 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
       <div className="absolute inset-0 z-0">
         <img
           src={imgHeroBg}
-          alt="Gana & Vinu"
-          className="absolute inset-0 size-full object-cover object-center pointer-events-none"
+          alt="Vinu & Gana"
+          className="absolute inset-0 size-full object-cover object-center pointer-events-none opacity-60"
         />
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Scattered petals */}
@@ -83,19 +83,19 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[14px] tracking-[4.2px] uppercase font-sans text-white/60 mb-8"
+          className="text-[11px] md:text-[12px] tracking-[3.8px] uppercase font-sans text-white/60 mb-8"
         >
           Together with their families
         </motion.p>
 
         {/* Names — writing animation */}
         <h1
-          style={{ fontFamily: "'Waiting for the Sunrise', cursive", lineHeight: 1 }}
-          className="text-[70px] md:text-[128px] text-[#C4A57B] tracking-[-1.5px] md:tracking-[-3.2px] mb-0 whitespace-nowrap"
+          style={{ fontFamily: "var(--couple-font, 'Waiting for the Sunrise', cursive)", lineHeight: 1 }}
+          className="text-[70px] md:text-[128px] text-[#C4A57B] tracking-[-1.5px] md:tracking-[-3.2px] mb-0 whitespace-nowrap flex items-center justify-center"
         >
-          {"Gana".split("").map((char, i) => (
+          {"Vinu".split("").map((char, i) => (
             <motion.span
-              key={`g-${i}`}
+              key={`v-${i}`}
               initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.25, delay: 0.5 + i * 0.1, ease: "easeOut" }}
@@ -108,13 +108,13 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
             initial={{ opacity: 0, scale: 0.4 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: 1.0, type: "spring", stiffness: 260 }}
-            className="inline-block text-white mx-2"
+            className="inline-block text-white text-[45px] md:text-[80px] mx-3"
           >
             &
           </motion.span>
-          {"Vinu".split("").map((char, i) => (
+          {"Gana".split("").map((char, i) => (
             <motion.span
-              key={`v-${i}`}
+              key={`g-${i}`}
               initial={{ opacity: 0, y: 12, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{ duration: 0.25, delay: 1.15 + i * 0.1, ease: "easeOut" }}
@@ -163,13 +163,13 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
             Request the honor of your presence
           </p>
           <p
-            className="text-[30px] tracking-[0.75px] text-[#ffdede]"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            className="text-[26px] md:text-[30px] tracking-[1px] text-white font-medium"
+            style={{ fontFamily: "'Poppins', sans-serif" }}
           >
-            Saturday, Oct 24th
+            24 & 25 October 2026
           </p>
           <p className="text-[14px] tracking-[0.7px] font-sans text-white/60">
-            Century Convention Centre, Mele Chelari, Near Calicut University
+            Century Auditorium, Mele Chelari · Reef Club
           </p>
         </motion.div>
 

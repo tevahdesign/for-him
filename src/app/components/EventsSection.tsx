@@ -69,9 +69,9 @@ export function EventsSection() {
     // Create Google Calendar URL
     const googleCalendarUrl = new URL('https://calendar.google.com/calendar/render');
     googleCalendarUrl.searchParams.append('action', 'TEMPLATE');
-    googleCalendarUrl.searchParams.append('text', `${event.name} - Gana & Vinu's Wedding`);
+    googleCalendarUrl.searchParams.append('text', `${event.name} - Vinu & Gana's Wedding`);
     googleCalendarUrl.searchParams.append('dates', `${startStr}/${endStr}`);
-    googleCalendarUrl.searchParams.append('details', `Join us for ${event.name} at Gana & Vinu's wedding celebration.`);
+    googleCalendarUrl.searchParams.append('details', `Join us for ${event.name} at Vinu & Gana's wedding celebration.`);
     googleCalendarUrl.searchParams.append('location', event.venue);
     
     // Open in new window
@@ -161,12 +161,6 @@ export function EventsSection() {
                       {event.date} · {event.time}
                     </p>
                   </div>
-                  <motion.div
-                    animate={{ rotate: openEvent === event.id ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown className="w-6 h-6 text-[#C4A57B]" />
-                  </motion.div>
                 </button>
                 <AnimatePresence>
                   {openEvent === event.id && (

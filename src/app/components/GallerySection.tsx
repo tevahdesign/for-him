@@ -3,16 +3,17 @@ import { X, ChevronLeft, ChevronRight, Heart } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 import { motion, AnimatePresence } from 'motion/react';
 import imgTogether from '@/imports/PremiumWeddingInvitationWebsite-2/f2620f3ada46f4253490618623d4b411fba7cae6.png';
-import imgCelebrations from '@/imports/PremiumWeddingInvitationWebsite/eff8209a870d74aaac3e7bdcfb817ab959242085.png';
-import imgMoments from '@/imports/PremiumWeddingInvitationWebsite/59e8811671b260eb2ad7760092f378a5f8e89d4d.png';
-import imgForever from '@/imports/PremiumWeddingInvitationWebsite/193921cf0ec6df597324de4ce406260d3c07622f.jpg';
-import imgJoy from '@/imports/PremiumWeddingInvitationWebsite-1/f53863290033ef9687cffed5bf4aeb863323222a.png';
+import imgCelebrations from '@/imports/PremiumWeddingInvitationWebsite-2/eff8209a870d74aaac3e7bdcfb817ab959242085.png';
+import imgMoments from '@/imports/PremiumWeddingInvitationWebsite-2/59e8811671b260eb2ad7760092f378a5f8e89d4d.png';
+import imgForever from '@/imports/PremiumWeddingInvitationWebsite-2/193921cf0ec6df597324de4ce406260d3c07622f.jpg';
+import imgJoy from '@/imports/PremiumWeddingInvitationWebsite-2/f53863290033ef9687cffed5bf4aeb863323222a.png';
 
 interface GalleryImage {
   id: number;
   src: string;
   caption: string;
   gridClass: string;
+  objectPosition?: string;
 }
 
 // Layout mirrors the Figma design:
@@ -20,11 +21,10 @@ interface GalleryImage {
 // [Together  ] [Moments   ] [Forever  ]  row 2
 // [Joy               ] [Forever  ]       row 3
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'col-start-1 col-end-2 row-start-1 row-end-3' },
-  { id: 2, src: imgCelebrations, caption: 'Celebrations', gridClass: 'col-start-2 col-end-4 row-start-1 row-end-2' },
-  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'col-start-2 col-end-3 row-start-2 row-end-3' },
-  { id: 4, src: imgForever,      caption: 'Forever',      gridClass: 'col-start-3 col-end-4 row-start-2 row-end-4' },
-  { id: 5, src: imgJoy,          caption: 'Joy',          gridClass: 'col-start-1 col-end-3 row-start-3 row-end-4' },
+  { id: 1, src: imgTogether,     caption: 'Together',     gridClass: 'md:col-span-1 md:row-span-2', objectPosition: 'object-center' },
+  { id: 2, src: imgForever,      caption: 'Celebrations', gridClass: 'md:col-span-2 md:row-span-1', objectPosition: 'object-[center_15%]' },
+  { id: 3, src: imgMoments,      caption: 'Moments',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'object-center' },
+  { id: 4, src: imgCelebrations, caption: 'Forever',      gridClass: 'md:col-span-1 md:row-span-1', objectPosition: 'object-center' },
 ];
 
 export function GallerySection() {
@@ -134,8 +134,8 @@ export function GallerySection() {
           </div>
         </ScrollReveal>
 
-        {/* Gallery Grid - Bento Box Style */}
-        <div className="grid grid-cols-3 gap-3 md:gap-4 auto-rows-[250px] md:auto-rows-[280px]">
+        {/* Bento Grid matching reference screenshot - Pure photos without frame or text before click */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 h-auto md:h-[580px] lg:h-[620px]">
           {galleryImages.map((image, index) => (
             <motion.button
               key={image.id}
@@ -144,92 +144,25 @@ export function GallerySection() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ 
                 duration: 0.6, 
-                delay: index * 0.05,
+                delay: index * 0.08,
                 ease: [0.25, 0.1, 0.25, 1]
               }}
               onClick={() => openLightbox(image.id)}
-              className={`relative overflow-hidden group cursor-pointer ${image.gridClass}`}
+              className={`relative overflow-hidden group cursor-pointer w-full h-[280px] md:h-full bg-black ${image.gridClass}`}
             >
-              {/* Image with frame effect */}
-              <div className="absolute inset-0 p-2 md:p-3">
-                <div className="relative w-full h-full overflow-hidden">
-                  {/* Golden border frame */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 border-2 border-[#C4A57B] z-10 pointer-events-none"
-                  />
-                  
-                  {/* Corner accents */}
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#C4A57B] z-10 pointer-events-none"
-                  />
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#C4A57B] z-10 pointer-events-none"
-                  />
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#C4A57B] z-10 pointer-events-none"
-                  />
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#C4A57B] z-10 pointer-events-none"
-                  />
+              {/* Pure Photo edge-to-edge - No border frame or text overlay before click */}
+              <motion.img
+                src={image.src}
+                alt={image.caption}
+                className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out ${image.objectPosition || 'object-center'}`}
+              />
 
-                  {/* Image */}
-                  <motion.img
-                    src={image.src}
-                    alt={image.caption}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.15 }}
-                    transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                  />
-
-                  {/* Gradient Overlay */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.4 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
-                  />
-
-                  {/* Caption */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileHover={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
-                    className="absolute bottom-0 left-0 right-0 p-4 md:p-6"
-                  >
-                    <p className="font-serif text-white text-lg md:text-2xl tracking-wide mb-1">
-                      {image.caption}
-                    </p>
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileHover={{ width: '100%' }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      className="h-px bg-[#C4A57B]"
-                    />
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Shine effect on hover */}
+              {/* Subtle hover shine effect */}
               <motion.div
                 initial={{ x: '-100%', opacity: 0 }}
-                whileHover={{ x: '200%', opacity: [0, 0.3, 0] }}
+                whileHover={{ x: '200%', opacity: [0, 0.2, 0] }}
                 transition={{ duration: 0.8 }}
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent pointer-events-none"
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none"
                 style={{ skewX: -20 }}
               />
             </motion.button>

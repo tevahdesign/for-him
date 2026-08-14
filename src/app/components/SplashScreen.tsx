@@ -5,7 +5,7 @@ export function SplashScreen() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 2000);
+    const timer = setTimeout(() => setVisible(false), 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -71,7 +71,7 @@ export function SplashScreen() {
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 className="text-white text-[80px] md:text-[100px] leading-none tracking-tight"
               >
-                G
+                V
               </motion.span>
 
               <motion.span
@@ -88,7 +88,7 @@ export function SplashScreen() {
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
                 className="text-white text-[80px] md:text-[100px] leading-none tracking-tight"
               >
-                V
+                G
               </motion.span>
             </motion.div>
 
