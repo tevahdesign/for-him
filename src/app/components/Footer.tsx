@@ -13,7 +13,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            style={{ fontFamily: "var(--couple-font, 'Great Vibes', cursive)" }}
+            style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)" }}
             className="text-5xl md:text-6xl tracking-wide text-[#C4A57B] font-normal"
           >
             Vinu <motion.span

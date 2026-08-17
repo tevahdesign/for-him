@@ -90,7 +90,7 @@ export function HeroSection({ onViewEvents, onRSVP }: HeroSectionProps) {
 
         {/* Names — writing animation */}
         <h1
-          style={{ fontFamily: "var(--couple-font, 'Great Vibes', cursive)", lineHeight: 1.1 }}
+          style={{ fontFamily: "var(--couple-font, 'Barrington', 'Great Vibes', cursive)", lineHeight: 1.1 }}
           className="text-[75px] md:text-[135px] text-[#C4A57B] tracking-normal mb-0 whitespace-nowrap flex items-center justify-center font-normal"
         >
           {"Vinu".split("").map((char, i) => (
